@@ -1,0 +1,42 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider specific
+.idea/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# User-specific files for Visual Studio
+.vs/
+.vscode/
+
+# Logs
+*.log
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Package Files #
+*.nupkg
+*.snupkg
+*.dll
+*.exe
+*.pdb
+
+# Temporary files
+*.swp
+*.tmp
+*.bak
