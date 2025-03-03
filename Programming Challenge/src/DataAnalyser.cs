@@ -3,7 +3,7 @@ namespace BcxpChallenge;
 /// <summary>
 /// Provides data analysis methods.
 /// </summary>
-public class DataAnalyser
+public static class DataAnalyser
 {
     /// <summary>
     /// Calculates the day with the lowest temperature spread from the given weather data input.

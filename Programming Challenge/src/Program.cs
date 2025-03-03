@@ -20,14 +20,14 @@ public sealed class Program
         if (weatherData != null)
         {
             var lowestTempSpread = DataAnalyser.FindDayWithLowestTempSpread(weatherData);
-            Console.WriteLine($"Day with smallest temperature spread: {lowestTempSpread}\n");
+            Console.WriteLine($"Day with smallest temperature spread: {lowestTempSpread}");
         }
 
         var countryData = fileParser.ParseCountriesFile("../../../resources/BcxpChallenge/countries.csv");
         if(countryData != null)
         {
             var countryWithHighestPopulationDensity = DataAnalyser.FindCountryWithHighestPopulationDensity(countryData);
-            Console.WriteLine($"Country with highest population density: {countryWithHighestPopulationDensity}\n");
+            Console.WriteLine($"Country with highest population density: {countryWithHighestPopulationDensity}");
         }
     }
 }

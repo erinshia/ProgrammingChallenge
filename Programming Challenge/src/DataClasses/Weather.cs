@@ -36,8 +36,7 @@ public class Weather
         _maxTemperature = Int32.Parse(maxTemperature);
         _minTemperature = Int32.Parse(minTemperature);
     }
-
-
+    
     /// <summary>
     /// Calculates the temperature spread for the weather data.
     /// </summary>

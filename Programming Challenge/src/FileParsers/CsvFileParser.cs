@@ -14,7 +14,18 @@ public class CsvFileParser : FileParser
     {
         var data = ReadDataFromCsv(filePath, ',');
         if (data == null) return null;
-        var weatherData = data.ToList().Select(x => new Weather(x[0], x[1], x[2]));
+        
+        var weatherData = new List<Weather>();
+        foreach (var date in data)
+        {
+            if(date.Length != 3)
+            {
+                Console.WriteLine("Invalid weather data");
+                return null;
+            }
+
+            weatherData.Add(new Weather(date[0], date[1], date[2]));
+        }
 
         return weatherData.ToList();
     }
@@ -28,8 +39,18 @@ public class CsvFileParser : FileParser
     {
         var data = ReadDataFromCsv(filePath, ';');
         if (data == null) return null;
-        var countryData = data.ToList().Select(x => new Country(x[0], x[3], x[4]));
+        
+        var countryData = new List<Country>();
+        foreach (var date in data)
+        {
+            if(date.Length != 5)
+            {
+                Console.WriteLine("Invalid country data");
+                return null;
+            }
 
+            countryData.Add(new Country(date[0], date[3], date[4]));
+        }
         return countryData.ToList();
     }
 
