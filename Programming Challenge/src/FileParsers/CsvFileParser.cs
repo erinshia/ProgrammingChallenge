@@ -18,7 +18,7 @@ public class CsvFileParser : FileParser
         var weatherData = new List<Weather>();
         foreach (var date in data)
         {
-            if(date.Length != 3)
+            if(date.Length < 3)
             {
                 Console.WriteLine("Invalid weather data");
                 return null;
@@ -43,7 +43,7 @@ public class CsvFileParser : FileParser
         var countryData = new List<Country>();
         foreach (var date in data)
         {
-            if(date.Length != 5)
+            if(date.Length < 5)
             {
                 Console.WriteLine("Invalid country data");
                 return null;
@@ -60,7 +60,7 @@ public class CsvFileParser : FileParser
     /// <param name="filePath"> The path to the csv file </param>
     /// <param name="separator"> The character at which to split each line </param>
     /// <returns> String array containing the data </returns>
-    private IEnumerable<string[]>? ReadDataFromCsv(string filePath, char separator)
+    private static IEnumerable<string[]>? ReadDataFromCsv(string filePath, char separator)
     {
         var lines = File.ReadAllLines(filePath);
         if (lines == null || lines.Length == 0)
@@ -70,7 +70,7 @@ public class CsvFileParser : FileParser
         }
         if (lines.Length == 1)
         {
-            Console.WriteLine("File is empty");
+            Console.WriteLine("File only contains headers");
             return null;
         }
 
