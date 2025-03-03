@@ -17,14 +17,17 @@ public sealed class Program
     {
         FileParser fileParser = new CsvFileParser();
         var weatherData = fileParser.ParseWeatherFile("../../../resources/BcxpChallenge/weather.csv");
-        var lowestTempSpread = DataAnalyser.FindDayWithLowestTempSpread(weatherData);
-        Console.WriteLine($"Day with smallest temperature spread: {lowestTempSpread}\n");
-        
-        
-        fileParser.ParseCountriesFile("../../../resources/BcxpChallenge/countries.csv");
+        if (weatherData != null)
+        {
+            var lowestTempSpread = DataAnalyser.FindDayWithLowestTempSpread(weatherData);
+            Console.WriteLine($"Day with smallest temperature spread: {lowestTempSpread}\n");
+        }
 
-        String countryWithHighestPopulationDensity = "Some country"; // Your population density analysis function call …
-        Console.WriteLine($"Country with highest population density: {countryWithHighestPopulationDensity}\n");
+        var countryData = fileParser.ParseCountriesFile("../../../resources/BcxpChallenge/countries.csv");
+        if(countryData != null)
+        {
+            var countryWithHighestPopulationDensity = DataAnalyser.FindCountryWithHighestPopulationDensity(countryData);
+            Console.WriteLine($"Country with highest population density: {countryWithHighestPopulationDensity}\n");
+        }
     }
 }
-

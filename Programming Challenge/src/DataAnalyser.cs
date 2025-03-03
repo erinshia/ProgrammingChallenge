@@ -13,6 +13,17 @@ public class DataAnalyser
     public static int FindDayWithLowestTempSpread(List<Weather> weatherData)
     {
         weatherData.Sort((x, y) => x.CalculateTemperatureSpread().CompareTo(y.CalculateTemperatureSpread()));
-        return weatherData[0].Day;
+        return weatherData.First().Day;
+    }
+    
+    /// <summary>
+    /// Calculates the country with the highest population density.
+    /// </summary>
+    /// <param name="weatherData"> List of Country data </param>
+    /// <returns> The name of the country with the highest population density </returns>
+    public static string FindCountryWithHighestPopulationDensity(List<Country> countryData)
+    {
+        countryData.Sort((x, y) => x.CalculatePopulationDensity().CompareTo(y.CalculatePopulationDensity()));
+        return countryData.Last().Name;
     }
 }
