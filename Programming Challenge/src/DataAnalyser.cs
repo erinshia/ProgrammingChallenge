@@ -19,7 +19,7 @@ public static class DataAnalyser
     /// <summary>
     /// Calculates the country with the highest population density.
     /// </summary>
-    /// <param name="weatherData"> List of Country data </param>
+    /// <param name="countryData"> List of Country data </param>
     /// <returns> The name of the country with the highest population density </returns>
     public static string FindCountryWithHighestPopulationDensity(List<Country> countryData)
     {

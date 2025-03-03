@@ -2,27 +2,16 @@ using System.Globalization;
 
 namespace BcxpChallenge;
 
+/// <summary>
+/// Holds the country data and provides the population density calculation.
+/// </summary>
 public class Country
 {
-    private string _name;
-    private int _population;
-    private float _area;
+    private readonly string _name;
+    private readonly int _population;
+    private readonly int _area;
     
     public string Name => _name;
-    
-    
-    /// <summary>
-    /// Constructor for the country class taking string value for day, and int values for max and min temperature.
-    /// </summary>
-    /// <param name="name"> The name of the country </param>
-    /// <param name="population"> The population of the country </param>
-    /// <param name="area"> The area of the country </param>
-    public Country(string name, int population, int area)
-    {
-        _name = name;
-        _population = population;
-        _area = area;
-    }
     
     /// <summary>
     /// Constructor for the country class taking string values for name, population and area.
@@ -34,37 +23,34 @@ public class Country
     {
         _name = name;
         
+        _population = TryParseInt(population);
+        _area = TryParseInt(area);
+    }
+
+    /// <summary>
+    /// Try parsing the input as a normal int and if that fails, try parsing it as a decimal and casting it to int.
+    /// </summary>
+    /// <param name="input"> The string to parse </param>
+    /// <returns> The parsed int </returns>
+    private static int TryParseInt(string input)
+    {
         var numberFormatInfo = new NumberFormatInfo
         {
             NumberGroupSeparator = ".",
             NumberDecimalSeparator = ","
         };
+        
+        if (int.TryParse(input, out int parsedInt))
+        {
+            return parsedInt;
+        }
 
-        if (Int32.TryParse(population, out int parsedPopInt))
+        if (decimal.TryParse(input, NumberStyles.Number, numberFormatInfo, out decimal parsedDecimal))
         {
-            _population = parsedPopInt;
-        }
-        else if (Decimal.TryParse(population, NumberStyles.Number, numberFormatInfo, out decimal parsedPopDecimal))
-        {
-            _population = (int)parsedPopDecimal;
-        }
-        else
-        {
-            throw new ArgumentException("Invalid population value");
+            return (int)parsedDecimal;
         }
         
-        if (Int32.TryParse(area, out int parsedAreaInt))
-        {
-            _area = parsedAreaInt;
-        }
-        else if (Decimal.TryParse(area, NumberStyles.Number, numberFormatInfo, out decimal parsedAreaDecimal))
-        {
-            _area = (int)parsedAreaDecimal;
-        }
-        else
-        {
-            throw new ArgumentException("Invalid population value");
-        }
+        throw new ArgumentException("Invalid input value: " + input);
     }
 
     /// <summary>
