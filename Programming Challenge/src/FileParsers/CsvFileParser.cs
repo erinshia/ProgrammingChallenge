@@ -16,7 +16,6 @@ namespace BcxpChallenge
         private const int PopulationIndex = 3;
         private const int AreaIndex = 4;
         
-        
         /// <summary>
         /// Parses the weather data from a CSV file at the given path.
         /// </summary>
@@ -103,13 +102,13 @@ namespace BcxpChallenge
 
                 if (lines.Length == 0)
                 {
-                    Console.WriteLine("File is empty");
+                    Console.WriteLine($"File is empty: {filePath}");
                     return null;
                 }
 
                 if (lines.Length == 1)
                 {
-                    Console.WriteLine("File only contains headers");
+                    Console.WriteLine($"File only contains headers: {filePath}");
                     return null;
                 }
 
@@ -119,7 +118,7 @@ namespace BcxpChallenge
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error reading the file: " + ex);
+                Console.WriteLine($"Error reading the file {filePath}: " + ex);
             }
 
             return null;
