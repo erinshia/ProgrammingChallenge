@@ -3,7 +3,7 @@ namespace BcxpChallenge;
 /// <summary>
 /// Interface defining the methods for parsing files.
 /// </summary>
-public interface FileParser
+public interface IFileParser
 {
     /// <summary>
     /// Parses the weather data from a file at the given path.

@@ -5,16 +5,16 @@ namespace BcxpChallenge
     /// <summary>
     /// Parses CSV files and return the data as a list.
     /// </summary>
-    public class CsvFileParser : FileParser
+    public class CsvFileParser : IFileParser
     {
         private const int WeatherDataFieldsCount = 3;
         private const int CountryDataFieldsCount = 5;
-        private const int dayIndex = 0;
-        private const int maxTempIndex = 1;
-        private const int minTempIndex = 2;
-        private const int nameIndex = 0;
-        private const int populationIndex = 3;
-        private const int areaIndex = 4;
+        private const int DayIndex = 0;
+        private const int MaxTempIndex = 1;
+        private const int MinTempIndex = 2;
+        private const int NameIndex = 0;
+        private const int PopulationIndex = 3;
+        private const int AreaIndex = 4;
         
         
         /// <summary>
@@ -39,9 +39,9 @@ namespace BcxpChallenge
 
                 try
                 {
-                    int day = TryParseInt(date[dayIndex]);
-                    int maxTemp = TryParseInt(date[maxTempIndex]);
-                    int minTemp = TryParseInt(date[minTempIndex]);
+                    int day = TryParseInt(date[DayIndex]);
+                    int maxTemp = TryParseInt(date[MaxTempIndex]);
+                    int minTemp = TryParseInt(date[MinTempIndex]);
                     Weather weather = new Weather(day, maxTemp, minTemp);
                     weatherData.Add(weather);
                 }
@@ -76,9 +76,9 @@ namespace BcxpChallenge
 
                 try
                 {
-                    int population = TryParseInt(date[populationIndex]);
-                    int area = TryParseInt(date[areaIndex]);
-                    Country country = new Country(date[nameIndex], population, area);
+                    int population = TryParseInt(date[PopulationIndex]);
+                    int area = TryParseInt(date[AreaIndex]);
+                    Country country = new Country(date[NameIndex], population, area);
                     countryData.Add(country);
                 }
                 catch (Exception ex)
@@ -101,7 +101,7 @@ namespace BcxpChallenge
             {
                 var lines = File.ReadAllLines(filePath);
 
-                if (lines == null || lines.Length == 0)
+                if (lines.Length == 0)
                 {
                     Console.WriteLine("File is empty");
                     return null;
