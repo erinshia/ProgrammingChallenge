@@ -7,6 +7,16 @@ namespace BcxpChallenge
     /// </summary>
     public class CsvFileParser : FileParser
     {
+        private const int WeatherDataFieldsCount = 3;
+        private const int CountryDataFieldsCount = 5;
+        private const int dayIndex = 0;
+        private const int maxTempIndex = 1;
+        private const int minTempIndex = 2;
+        private const int nameIndex = 0;
+        private const int populationIndex = 3;
+        private const int areaIndex = 4;
+        
+        
         /// <summary>
         /// Parses the weather data from a CSV file at the given path.
         /// </summary>
@@ -21,7 +31,7 @@ namespace BcxpChallenge
             foreach (var date in data)
             {
                 // If this entry doesn't contain enough data, skip it
-                if(date.Length < 3)
+                if(date.Length < WeatherDataFieldsCount)
                 {
                     Console.WriteLine("Invalid weather data, skipping entry");
                     continue;
@@ -29,9 +39,9 @@ namespace BcxpChallenge
 
                 try
                 {
-                    int day = TryParseInt(date[0]);
-                    int maxTemp = TryParseInt(date[1]);
-                    int minTemp = TryParseInt(date[2]);
+                    int day = TryParseInt(date[dayIndex]);
+                    int maxTemp = TryParseInt(date[maxTempIndex]);
+                    int minTemp = TryParseInt(date[minTempIndex]);
                     Weather weather = new Weather(day, maxTemp, minTemp);
                     weatherData.Add(weather);
                 }
@@ -58,7 +68,7 @@ namespace BcxpChallenge
             foreach (var date in data)
             {
                 // If this entry doesn't contain enough data, skip it
-                if(date.Length < 5)
+                if(date.Length < CountryDataFieldsCount)
                 {
                     Console.WriteLine("Invalid country data, skipping entry");
                     continue;
@@ -66,9 +76,9 @@ namespace BcxpChallenge
 
                 try
                 {
-                    int population = TryParseInt(date[3]);
-                    int area = TryParseInt(date[4]);
-                    Country country = new Country(date[0], population, area);
+                    int population = TryParseInt(date[populationIndex]);
+                    int area = TryParseInt(date[areaIndex]);
+                    Country country = new Country(date[nameIndex], population, area);
                     countryData.Add(country);
                 }
                 catch (Exception ex)
