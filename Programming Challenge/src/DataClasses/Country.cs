@@ -14,49 +14,23 @@ public class Country
     public string Name => _name;
     
     /// <summary>
-    /// Constructor for the country class taking string values for name, population and area.
+    /// Constructor for the country class taking a name string and int values for population and area.
     /// </summary>
     /// <param name="name"> The name of the country </param>
     /// <param name="population"> The population of the country </param>
     /// <param name="area"> The area of the country </param>
-    public Country(string name, string population, string area)
+    public Country(string name, int population, int area)
     {
         _name = name;
         
-        _population = TryParseInt(population);
-        _area = TryParseInt(area);
+        _population = population;
+        _area = area;
     }
 
     /// <summary>
-    /// Try parsing the input as a normal int and if that fails, try parsing it as a decimal and casting it to int.
+    /// Calculates the population density for the country data.
     /// </summary>
-    /// <param name="input"> The string to parse </param>
-    /// <returns> The parsed int </returns>
-    private static int TryParseInt(string input)
-    {
-        var numberFormatInfo = new NumberFormatInfo
-        {
-            NumberGroupSeparator = ".",
-            NumberDecimalSeparator = ","
-        };
-        
-        if (int.TryParse(input, out int parsedInt))
-        {
-            return parsedInt;
-        }
-
-        if (decimal.TryParse(input, NumberStyles.Number, numberFormatInfo, out decimal parsedDecimal))
-        {
-            return (int)parsedDecimal;
-        }
-        
-        throw new ArgumentException("Invalid input value: " + input);
-    }
-
-    /// <summary>
-    /// Calculates the temperature spread for the weather data.
-    /// </summary>
-    /// <returns> The temperature spread </returns>
+    /// <returns> The population density </returns>
     public float CalculatePopulationDensity()
     {
         return (float)_population / _area;

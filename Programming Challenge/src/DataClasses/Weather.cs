@@ -14,16 +14,16 @@ public class Weather
     public int Day => _day;
     
     /// <summary>
-    /// Constructor for the weather class taking string values for day, max and min temperature.
+    /// Constructor for the weather class taking int values for day, max and min temperature.
     /// </summary>
     /// <param name="day"> The day of the month </param>
     /// <param name="maxTemperature"> The maximum temperature on that day </param>
     /// <param name="minTemperature"> The minimum temperature on that day </param>
-    public Weather(string day, string maxTemperature, string minTemperature)
+    public Weather(int day, int maxTemperature, int minTemperature)
     {
-        _day = Parse(day);
-        _maxTemperature = Parse(maxTemperature);
-        _minTemperature = Parse(minTemperature);
+        _day = day;
+        _maxTemperature = maxTemperature;
+        _minTemperature = minTemperature;
     }
     
     /// <summary>
