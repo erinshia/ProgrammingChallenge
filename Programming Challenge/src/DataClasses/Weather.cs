@@ -1,5 +1,3 @@
-using static System.Int32;
-
 namespace BcxpChallenge;
 
 /// <summary>
