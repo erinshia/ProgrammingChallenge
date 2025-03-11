@@ -70,7 +70,7 @@
         }
         
         /// <summary>
-        /// Test if invalid weather input is handled correctly.
+        /// Test if weather input with an invalid line is handled correctly.
         /// </summary>
         [Test]
         public void TestWeatherWithInvalidEntryInput()
@@ -81,7 +81,7 @@
         }
         
         /// <summary>
-        /// Test if invalid country input is handled correctly.
+        /// Test if country input with an invalid line is handled correctly.
         /// </summary>
         [Test]
         public void TestCountriesWithInvalidEntryInput()
@@ -92,7 +92,7 @@
         } 
         
         /// <summary>
-        /// Test if invalid weather input is handled correctly.
+        /// Test if completely invalid weather input is handled correctly.
         /// </summary>
         [Test]
         public void TestWeatherWithInvalidInput()
@@ -103,7 +103,7 @@
         }
         
         /// <summary>
-        /// Test if invalid country input is handled correctly.
+        /// Test if completely invalid country input is handled correctly.
         /// </summary>
         [Test]
         public void TestCountriesWithInvalidInput()
