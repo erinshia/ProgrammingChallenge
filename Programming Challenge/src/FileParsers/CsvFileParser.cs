@@ -50,7 +50,7 @@ namespace BcxpChallenge
                 }
             }
 
-            return weatherData.ToList();
+            return weatherData.Count == 0 ? null : weatherData.ToList();
         }
 
         /// <summary>
@@ -85,7 +85,8 @@ namespace BcxpChallenge
                     Console.WriteLine("Error parsing country data: " + ex);
                 }
             }
-            return countryData.ToList();
+
+            return countryData.Count == 0 ? null : countryData.ToList();
         }
 
         /// <summary>

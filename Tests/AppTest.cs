@@ -73,11 +73,33 @@
         /// Test if invalid weather input is handled correctly.
         /// </summary>
         [Test]
+        public void TestWeatherWithInvalidEntryInput()
+        {
+            CsvFileParser csvFileParser = new CsvFileParser();
+            string weatherFilePath = "../../../resources/BcxpChallenge/weatherInvalidEntry.csv";
+            Assert.That(App.HandleWeatherData(csvFileParser, weatherFilePath), Is.EqualTo(14));
+        }
+        
+        /// <summary>
+        /// Test if invalid country input is handled correctly.
+        /// </summary>
+        [Test]
+        public void TestCountriesWithInvalidEntryInput()
+        {
+            CsvFileParser csvFileParser = new CsvFileParser();
+            string countryFilePath = "../../../resources/BcxpChallenge/countriesInvalidEntry.csv";
+            Assert.That(App.HandleCountryData(csvFileParser, countryFilePath), Is.EqualTo("Malta"));
+        } 
+        
+        /// <summary>
+        /// Test if invalid weather input is handled correctly.
+        /// </summary>
+        [Test]
         public void TestWeatherWithInvalidInput()
         {
             CsvFileParser csvFileParser = new CsvFileParser();
             string weatherFilePath = "../../../resources/BcxpChallenge/weatherInvalid.csv";
-            Assert.That(App.HandleWeatherData(csvFileParser, weatherFilePath), Is.EqualTo(14));
+            Assert.That(App.HandleWeatherData(csvFileParser, weatherFilePath), Is.EqualTo(0));
         }
         
         /// <summary>
@@ -88,9 +110,8 @@
         {
             CsvFileParser csvFileParser = new CsvFileParser();
             string countryFilePath = "../../../resources/BcxpChallenge/countriesInvalid.csv";
-            Assert.That(App.HandleCountryData(csvFileParser, countryFilePath), Is.EqualTo("Malta"));
+            Assert.That(App.HandleCountryData(csvFileParser, countryFilePath), Is.EqualTo(null));
         }
-        
         
         /// <summary>
         /// Test if weather input with incorrect types is handled correctly.
