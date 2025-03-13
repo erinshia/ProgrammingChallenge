@@ -16,6 +16,12 @@ public sealed class App
     /// <param name="args"> The CLI arguments passed: path to the weather file, path to the country file </param>
     public static void Main(string[] args)
     {
+        if(args.Length < 2)
+        {
+            Console.WriteLine("Please provide the path to the weather data file and the country data file.");
+            return;
+        }
+        
         string weatherFilePath = args[0];
         string countryFilePath = args[1];
         
