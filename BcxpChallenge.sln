@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programming Challenge", "Programming Challenge\Programming Challenge.csproj", "{433B2F8E-ABBA-4340-86F0-33828342FDE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BcxpChallenge", "BcxpChallenge\BcxpChallenge.csproj", "{433B2F8E-ABBA-4340-86F0-33828342FDE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{AE6EC8F9-8A44-4488-8C07-9868F07CFA6D}"
 EndProject

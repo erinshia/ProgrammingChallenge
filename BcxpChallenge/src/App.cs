@@ -1,4 +1,8 @@
-﻿namespace BcxpChallenge;
+﻿using BcxpChallenge.WeatherAnalysis;
+using BcxpChallenge.CountryAnalysis;
+using BcxpChallenge.FileParser;
+
+namespace BcxpChallenge;
 
 /**
  * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
@@ -15,26 +19,27 @@ public sealed class App
         string weatherFilePath = args[0];
         string countryFilePath = args[1];
         
-        CsvFileParser fileParser = new CsvFileParser();
+        CsvFileReader fileReader = new CsvFileReader();
         
-        HandleWeatherData(fileParser, weatherFilePath);
+        HandleWeatherData(fileReader, weatherFilePath);
 
-        HandleCountryData(fileParser, countryFilePath);
+        HandleCountriesData(fileReader, countryFilePath);
     }
 
     /// <summary>
     /// Handles the weather data by parsing the file and finding the day with the lowest temperature spread.
     /// Logs the result and returns the day for testing. 
     /// </summary>
-    /// <param name="fileParser"> The file parser </param>
+    /// <param name="fileReader"> The file parser </param>
     /// <param name="weatherFilePath"> The path to the weather data file </param>
     /// <returns> The #day with the lowest temperature spread </returns>
-    public static int HandleWeatherData(IFileParser fileParser, string weatherFilePath)
+    public static int HandleWeatherData(IFileReader fileReader, string weatherFilePath)
     {
-        var weatherData = fileParser.ParseWeatherFile(weatherFilePath);
+        var weatherInput = fileReader.ReadDataFromFile(weatherFilePath, ',');
+        List<Weather> weatherData = WeatherAnalyser.ParseWeatherFile(weatherInput);
         if (weatherData != null)
         {
-            var lowestTempSpread = DataAnalyser.FindDayWithLowestTempSpread(weatherData);
+            var lowestTempSpread = WeatherAnalyser.FindDayWithLowestTempSpread(weatherData);
             Console.WriteLine($"Day with smallest temperature spread: {lowestTempSpread}");
             return lowestTempSpread;
         }
@@ -44,17 +49,18 @@ public sealed class App
     
     /// <summary>
     /// Handles the country data by parsing the file and finding the country with the highest population density.
-    /// Logs the result and return the country name for testing.
+    /// Logs the result and returns the country name for testing.
     /// </summary>
-    /// <param name="fileParser"> The file parser </param>
-    /// <param name="countryFilePath"> The path to the weather data file </param>
+    /// <param name="fileReader"> The file parser </param>
+    /// <param name="countryFilePath"> The path to the country data file </param>
     /// <returns> The country name with the highest population density </returns>
-    public static string HandleCountryData(IFileParser fileParser, string countryFilePath)
+    public static string HandleCountriesData(IFileReader fileReader, string countryFilePath)
     {
-        var countryData = fileParser.ParseCountriesFile(countryFilePath);
+        var countryInput = fileReader.ReadDataFromFile(countryFilePath, ';');
+        var countryData = CountryAnalyser.ParseCountriesFile(countryInput);
         if(countryData != null)
         {
-            var countryWithHighestPopulationDensity = DataAnalyser.FindCountryWithHighestPopulationDensity(countryData);
+            var countryWithHighestPopulationDensity = CountryAnalyser.FindCountryWithHighestPopulationDensity(countryData);
             Console.WriteLine($"Country with highest population density: {countryWithHighestPopulationDensity}");
             return countryWithHighestPopulationDensity;
         }

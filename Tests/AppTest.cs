@@ -1,7 +1,9 @@
-﻿namespace BcxpChallenge
+﻿using BcxpChallenge.FileParser;
+
+namespace BcxpChallenge
 {
     /// <summary>
-    /// NUnit tests to test the functionality of the App class.
+    /// NUnit tests to test the functionality of the programm.
     /// </summary>
     public class AppTest
     {
@@ -41,9 +43,9 @@
         [Test]
         public void TestWeatherWithCorrectInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string weatherFilePath = "../../../resources/BcxpChallenge/weather.csv";
-            Assert.That(App.HandleWeatherData(csvFileParser, weatherFilePath), Is.EqualTo(14));
+            Assert.That(App.HandleWeatherData(csvFileReader, weatherFilePath), Is.EqualTo(14));
         }
         
         /// <summary>
@@ -52,9 +54,9 @@
         [Test]
         public void TestCountriesWithCorrectInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string countryFilePath = "../../../resources/BcxpChallenge/countries.csv";
-            Assert.That(App.HandleCountryData(csvFileParser, countryFilePath), Is.EqualTo("Malta"));
+            Assert.That(App.HandleCountriesData(csvFileReader, countryFilePath), Is.EqualTo("Malta"));
         }
         
         /// <summary>
@@ -63,9 +65,9 @@
         [Test]
         public void TestWeatherWithEmptyInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string weatherFilePath = "../../../resources/BcxpChallenge/Empty.csv";
-            Assert.That(App.HandleWeatherData(csvFileParser, weatherFilePath), Is.EqualTo(0));
+            Assert.That(App.HandleWeatherData(csvFileReader, weatherFilePath), Is.EqualTo(0));
         }
         
         /// <summary>
@@ -74,9 +76,9 @@
         [Test]
         public void TestCountriesWithEmptyInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string countryFilePath = "../../../resources/BcxpChallenge/Empty.csv";
-            Assert.That(App.HandleCountryData(csvFileParser, countryFilePath), Is.EqualTo(null));
+            Assert.That(App.HandleCountriesData(csvFileReader, countryFilePath), Is.EqualTo(null));
         }
         
         /// <summary>
@@ -85,9 +87,9 @@
         [Test]
         public void TestWeatherWithInvalidEntryInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string weatherFilePath = "../../../resources/BcxpChallenge/weatherInvalidEntry.csv";
-            Assert.That(App.HandleWeatherData(csvFileParser, weatherFilePath), Is.EqualTo(14));
+            Assert.That(App.HandleWeatherData(csvFileReader, weatherFilePath), Is.EqualTo(14));
         }
         
         /// <summary>
@@ -96,9 +98,9 @@
         [Test]
         public void TestCountriesWithInvalidEntryInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string countryFilePath = "../../../resources/BcxpChallenge/countriesInvalidEntry.csv";
-            Assert.That(App.HandleCountryData(csvFileParser, countryFilePath), Is.EqualTo("Malta"));
+            Assert.That(App.HandleCountriesData(csvFileReader, countryFilePath), Is.EqualTo("Malta"));
         } 
         
         /// <summary>
@@ -107,9 +109,9 @@
         [Test]
         public void TestWeatherWithInvalidInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string weatherFilePath = "../../../resources/BcxpChallenge/weatherInvalid.csv";
-            Assert.That(App.HandleWeatherData(csvFileParser, weatherFilePath), Is.EqualTo(0));
+            Assert.That(App.HandleWeatherData(csvFileReader, weatherFilePath), Is.EqualTo(0));
         }
         
         /// <summary>
@@ -118,9 +120,9 @@
         [Test]
         public void TestCountriesWithInvalidInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string countryFilePath = "../../../resources/BcxpChallenge/countriesInvalid.csv";
-            Assert.That(App.HandleCountryData(csvFileParser, countryFilePath), Is.EqualTo(null));
+            Assert.That(App.HandleCountriesData(csvFileReader, countryFilePath), Is.EqualTo(null));
         }
         
         /// <summary>
@@ -129,9 +131,9 @@
         [Test]
         public void TestWeatherWithInvalidTypesInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string weatherFilePath = "../../../resources/BcxpChallenge/weatherInvalidType.csv";
-            Assert.That(App.HandleWeatherData(csvFileParser, weatherFilePath), Is.EqualTo(14));
+            Assert.That(App.HandleWeatherData(csvFileReader, weatherFilePath), Is.EqualTo(14));
         }
         
         /// <summary>
@@ -140,9 +142,9 @@
         [Test]
         public void TestCountriesWithInvalidTypesInput()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
+            CsvFileReader csvFileReader = new CsvFileReader();
             string countryFilePath = "../../../resources/BcxpChallenge/countriesInvalidType.csv";
-            Assert.That(App.HandleCountryData(csvFileParser, countryFilePath), Is.EqualTo("Malta"));
+            Assert.That(App.HandleCountriesData(csvFileReader, countryFilePath), Is.EqualTo("Malta"));
         }
         
         /// <summary>
@@ -151,8 +153,8 @@
         [Test]
         public void TestWeatherWithWrongPath()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
-            Assert.That(App.HandleCountryData(csvFileParser, "wrongPath"), Is.EqualTo(null));
+            CsvFileReader csvFileReader = new CsvFileReader();
+            Assert.That(App.HandleCountriesData(csvFileReader, "wrongPath"), Is.EqualTo(null));
         }
         
         /// <summary>
@@ -161,8 +163,8 @@
         [Test]
         public void TestCountriesWithWrongPath()
         {
-            CsvFileParser csvFileParser = new CsvFileParser();
-            Assert.That(App.HandleCountryData(csvFileParser, "wrongPath"), Is.EqualTo(null));
+            CsvFileReader csvFileReader = new CsvFileReader();
+            Assert.That(App.HandleCountriesData(csvFileReader, "wrongPath"), Is.EqualTo(null));
         }
     }
 }
