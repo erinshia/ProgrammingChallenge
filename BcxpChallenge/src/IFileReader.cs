@@ -5,19 +5,11 @@ namespace BcxpChallenge;
 /// </summary>
 public interface IFileReader
 {
+    /// <summary>
+    /// Reads data from file, validates the input, and returns the data as a list of string arrays.
+    /// </summary>
+    /// <param name="filePath"> The path to the file </param>
+    /// <param name="separator"> The character at which to split each line </param>
+    /// <returns> String array containing the data </returns>
     public IEnumerable<string[]>? ReadDataFromFile(string filePath, char separator);
-    
-    // /// <summary>
-    // /// Parses the weather data from a file at the given path.
-    // /// </summary>
-    // /// <param name="filePath"> The file path </param>
-    // /// <returns> A list of weather objects containing the data from the file </returns>
-    // public List<Weather>? ParseWeatherFile(string filePath);
-    //
-    // /// <summary>
-    // /// Parses the country data from a file at the given path.
-    // /// </summary>
-    // /// <param name="filePath"> The file path </param>
-    // /// <returns> A list of country objects containing the data from the file </returns>
-    // public List<Country>? ParseCountriesFile(string filePath);
 }

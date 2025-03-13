@@ -2,7 +2,10 @@ using System.Globalization;
 
 namespace BcxpChallenge.Utils;
 
-public class NumberParsingUtils
+/// <summary>
+/// Provides utility methods for parsing numbers from strings.
+/// </summary>
+public static class NumberParsingUtils
 {
     private static readonly NumberFormatInfo _numberFormatInfo = new()
     {

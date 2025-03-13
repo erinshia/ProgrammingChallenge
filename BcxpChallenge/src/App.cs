@@ -36,7 +36,8 @@ public sealed class App
     public static int HandleWeatherData(IFileReader fileReader, string weatherFilePath)
     {
         var weatherInput = fileReader.ReadDataFromFile(weatherFilePath, ',');
-        List<Weather> weatherData = WeatherAnalyser.ParseWeatherFile(weatherInput);
+        WeatherAnalyser weatherAnalyser = new WeatherAnalyser();
+        var weatherData = weatherAnalyser.ParseWeatherData(weatherInput);
         if (weatherData != null)
         {
             var lowestTempSpread = WeatherAnalyser.FindDayWithLowestTempSpread(weatherData);
@@ -57,7 +58,8 @@ public sealed class App
     public static string HandleCountriesData(IFileReader fileReader, string countryFilePath)
     {
         var countryInput = fileReader.ReadDataFromFile(countryFilePath, ';');
-        var countryData = CountryAnalyser.ParseCountriesFile(countryInput);
+        CountryAnalyser countryAnalyser = new CountryAnalyser();
+        var countryData = countryAnalyser.ParseCountryData(countryInput);
         if(countryData != null)
         {
             var countryWithHighestPopulationDensity = CountryAnalyser.FindCountryWithHighestPopulationDensity(countryData);

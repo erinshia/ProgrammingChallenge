@@ -1,12 +1,12 @@
 namespace BcxpChallenge.FileParser
 {
     /// <summary>
-    /// Parses CSV files and return the data as a list.
+    /// Reads data from CSV files.
     /// </summary>
     public class CsvFileReader : IFileReader
     {
         /// <summary>
-        /// Reads data from csv, validates the input, and returns the data as a list of string arrays.
+        /// Reads data from a csv file, validates the input, and returns the data as a list of string arrays.
         /// </summary>
         /// <param name="filePath"> The path to the csv file </param>
         /// <param name="separator"> The character at which to split each line </param>
