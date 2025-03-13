@@ -29,7 +29,7 @@ public sealed class App
     /// <param name="fileParser"> The file parser </param>
     /// <param name="weatherFilePath"> The path to the weather data file </param>
     /// <returns> The #day with the lowest temperature spread </returns>
-    public static int HandleWeatherData(CsvFileParser fileParser, string weatherFilePath)
+    public static int HandleWeatherData(IFileParser fileParser, string weatherFilePath)
     {
         var weatherData = fileParser.ParseWeatherFile(weatherFilePath);
         if (weatherData != null)
@@ -49,7 +49,7 @@ public sealed class App
     /// <param name="fileParser"> The file parser </param>
     /// <param name="countryFilePath"> The path to the weather data file </param>
     /// <returns> The country name with the highest population density </returns>
-    public static string HandleCountryData(CsvFileParser fileParser, string countryFilePath)
+    public static string HandleCountryData(IFileParser fileParser, string countryFilePath)
     {
         var countryData = fileParser.ParseCountriesFile(countryFilePath);
         if(countryData != null)
