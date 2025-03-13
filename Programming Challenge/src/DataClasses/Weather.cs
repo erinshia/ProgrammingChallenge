@@ -25,11 +25,11 @@ public class Weather
     }
     
     /// <summary>
-    /// Calculates the temperature spread for the weather data.
+    /// Calculates the absolute temperature spread for the weather data. 
     /// </summary>
-    /// <returns> The temperature spread </returns>
+    /// <returns> The absolute value of the temperature spread </returns>
     public int CalculateTemperatureSpread()
     {
-        return _maxTemperature - _minTemperature;
+        return Math.Abs(_maxTemperature - _minTemperature);
     }
 }

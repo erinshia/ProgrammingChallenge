@@ -26,6 +26,16 @@
         }
         
         /// <summary>
+        /// Test the temperature spread calculation for swapped minTemp and maxTemp.
+        /// </summary>
+        [Test]
+        public void TestTemperatureSpreadCalculationWithSwappedValues()
+        {
+            Weather testWeather = new Weather(1, -5, 10);
+            Assert.That(testWeather.CalculateTemperatureSpread(), Is.EqualTo(15));
+        }
+        
+        /// <summary>
         /// Test if the correct day with the lowest temperature spread is found.
         /// </summary>
         [Test]
