@@ -11,8 +11,8 @@ public class CountryAnalyser : DataAnalyser<Country>
 
     protected override Country ParseDataEntries(string[] date)
     {
-        int population = NumberParsingUtils.TryParseInt(date[PopulationIndex]);
-        int area = NumberParsingUtils.TryParseInt(date[AreaIndex]);
+        int population = NumberParsingUtils.TryParseIntInGermanFormatting(date[PopulationIndex]);
+        int area = NumberParsingUtils.TryParseIntInGermanFormatting(date[AreaIndex]);
         Country country = new Country(date[NameIndex], population, area);
         return country;
     }

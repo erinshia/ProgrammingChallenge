@@ -15,10 +15,12 @@ public static class NumberParsingUtils
 
     /// <summary>
     /// Try parsing the input as a normal int and if that fails, try parsing it as a decimal and casting it to int.
+    /// This expects the input to contain no separators or german formatting i.e. with comma as decimal and dot as group separator.
     /// </summary>
     /// <param name="input"> The string to parse </param>
     /// <returns> The parsed int </returns>
-    public static int TryParseInt(string input)
+    /// <exception cref="ArgumentException"> When trying to parse an int that doesn't match german formatting </exception>
+    public static int TryParseIntInGermanFormatting(string input)
     {
         // Try parsing the input as an int
         if (int.TryParse(input, out int parsedInt))

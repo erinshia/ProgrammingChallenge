@@ -11,9 +11,9 @@ public class WeatherAnalyser : DataAnalyser<Weather>
     
     protected override Weather ParseDataEntries(string[] date)
     {
-        int day = NumberParsingUtils.TryParseInt(date[DayIndex]);
-        int maxTemp = NumberParsingUtils.TryParseInt(date[MaxTempIndex]);
-        int minTemp = NumberParsingUtils.TryParseInt(date[MinTempIndex]);
+        int day = NumberParsingUtils.TryParseIntInGermanFormatting(date[DayIndex]);
+        int maxTemp = NumberParsingUtils.TryParseIntInGermanFormatting(date[MaxTempIndex]);
+        int minTemp = NumberParsingUtils.TryParseIntInGermanFormatting(date[MinTempIndex]);
         Weather weather = new Weather(day, maxTemp, minTemp);
         return weather;
     }
