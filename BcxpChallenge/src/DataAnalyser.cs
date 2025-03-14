@@ -8,7 +8,7 @@ public abstract class DataAnalyser<T>
     /// <param name="input"> The lines that were read from the file </param>
     /// <param name="requiredNumbersOfEntries"> How many entries are needed in each line </param>
     /// <returns> A list of T objects containing the data from the file </returns>
-    public List<T>? ParseDataFromInput(IEnumerable<string[]>? input, int requiredNumbersOfEntries)
+    protected List<T>? ParseDataFromInput(IEnumerable<string[]>? input, int requiredNumbersOfEntries)
     {
         if (input == null) return null;
         
