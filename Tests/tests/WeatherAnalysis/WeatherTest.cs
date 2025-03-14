@@ -6,7 +6,7 @@ public class WeatherTest
     /// Test the temperature spread calculation with positive min and max temperature.
     /// </summary>
     [Test]
-    public void TemperatureSpread_CalculatedCorrectlyByAbsoluteValueOfSubtractionOfMinTempFromMaxTemp_WhenGivenPositiveTemperatures()
+    public void TemperatureSpread_CalculatedCorrectlyByAbsoluteOfSubtractionOfMinTempFromMaxTemp_WhenGivenPositiveTemperatures()
     {
         Weather testWeather = new Weather(1, 10, 5);
         Assert.That(testWeather.CalculateTemperatureSpread(), Is.EqualTo(5));
@@ -16,7 +16,7 @@ public class WeatherTest
     /// Test the temperature spread calculation with positive max and negative min temperature.
     /// </summary>
     [Test]
-    public void TemperatureSpread_CalculatedCorrectlyByAbsoluteValueOfSubtractionOfMinTempFromMaxTemp_WhenGivenPositiveMaxTempAndNegativeMinTemp()
+    public void TemperatureSpread_CalculatedCorrectlyByAbsoluteOfSubtractionOfMinTempFromMaxTemp_WhenGivenPositiveMaxTempAndNegativeMinTemp()
     {
         Weather testWeather = new Weather(1, 10, -5);
         Assert.That(testWeather.CalculateTemperatureSpread(), Is.EqualTo(15));
