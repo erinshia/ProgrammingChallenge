@@ -18,7 +18,7 @@ public abstract class DataAnalyser<T>
             // If this entry doesn't contain enough data, skip it
             if(date.Length < requiredNumbersOfEntries)
             {
-                Console.WriteLine("Invalid country data, skipping entry");
+                Console.WriteLine($"Invalid {typeof(T)} data, skipping entry");
                 continue;
             }
 
@@ -28,7 +28,7 @@ public abstract class DataAnalyser<T>
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error parsing country data: " + ex);
+                Console.WriteLine($"Error parsing  {typeof(T)} data: " + ex);
             }
         }
 
