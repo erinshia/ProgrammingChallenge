@@ -20,7 +20,6 @@ public class Country
     public Country(string name, int population, int area)
     {
         _name = name;
-        
         _population = population;
         _area = area;
     }
@@ -31,6 +30,7 @@ public class Country
     /// <returns> The population density </returns>
     public float CalculatePopulationDensity()
     {
+        if(_area == 0) return 0f;
         return (float)_population / _area;
     }
 }
