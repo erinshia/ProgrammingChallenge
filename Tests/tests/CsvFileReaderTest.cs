@@ -2,6 +2,9 @@ using BcxpChallenge.FileParser;
 
 namespace Tests;
 
+/// <summary>
+/// Provides tests for the CsvFileReader class.
+/// </summary>
 public class CsvFileReaderTest
 {
     private CsvFileReader _csvFileReader;

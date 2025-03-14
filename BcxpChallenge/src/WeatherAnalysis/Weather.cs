@@ -12,11 +12,11 @@ public class Weather
     public int Day => _day;
     
     /// <summary>
-    /// Constructor for the weather class taking int values for day, max and min temperature.
+    /// Constructor for the weather class.
     /// </summary>
-    /// <param name="day"> The day of the month </param>
-    /// <param name="maxTemperature"> The maximum temperature on that day </param>
-    /// <param name="minTemperature"> The minimum temperature on that day </param>
+    /// <param name="day"> The day of the month. </param>
+    /// <param name="maxTemperature"> The maximum temperature on that day. </param>
+    /// <param name="minTemperature"> The minimum temperature on that day. </param>
     public Weather(int day, int maxTemperature, int minTemperature)
     {
         _day = day;
@@ -27,7 +27,7 @@ public class Weather
     /// <summary>
     /// Calculates the absolute temperature spread for the weather data. 
     /// </summary>
-    /// <returns> The absolute value of the temperature spread </returns>
+    /// <returns> The absolute value of the temperature spread. </returns>
     public int CalculateTemperatureSpread()
     {
         return Math.Abs(_maxTemperature - _minTemperature);

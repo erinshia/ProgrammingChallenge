@@ -1,13 +1,17 @@
 namespace BcxpChallenge;
 
+/// <summary>
+/// Defines methods to parse and analyse T data.
+/// </summary>
+/// <typeparam name="T"> The type of data to be analysed. </typeparam>
 public abstract class DataAnalyser<T>
 {
     /// <summary>
-    /// Parses the country data from a CSV file at the given path.
+    /// Parses the data from a list of string arrays into a list of T objects.
     /// </summary>
-    /// <param name="input"> The lines that were read from the file </param>
-    /// <param name="requiredNumbersOfEntries"> How many entries are needed in each line </param>
-    /// <returns> A list of T objects containing the data from the file </returns>
+    /// <param name="input"> The lines of data already split at the separator. </param>
+    /// <param name="requiredNumbersOfEntries"> How many entries are needed in each line. </param>
+    /// <returns> A list of T objects containing the data from the file. </returns>
     protected List<T>? ParseDataFromInput(IEnumerable<string[]>? input, int requiredNumbersOfEntries)
     {
         if (input == null) return null;
@@ -36,9 +40,9 @@ public abstract class DataAnalyser<T>
     }
 
     /// <summary>
-    /// Parses the data entries from the given line into a list of T objects.
+    /// Parses the data from the given string array into a T object.
     /// </summary>
-    /// <param name="date"> A line of data </param>
-    /// <returns> A T object containing the data </returns>
+    /// <param name="date"> Contains the data for a T object. </param>
+    /// <returns> A T object containing the data. </returns>
     protected abstract T ParseDataEntries(string[] date);
 }

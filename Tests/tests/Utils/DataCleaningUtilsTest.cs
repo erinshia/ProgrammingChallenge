@@ -2,6 +2,9 @@ using BcxpChallenge.Utils;
 
 namespace Tests.Utils;
 
+/// <summary>
+/// Provides tests for the DataCleaningUtils class.
+/// </summary>
 public class DataCleaningUtilsTest
 {
     /// <summary>

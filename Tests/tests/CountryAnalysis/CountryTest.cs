@@ -2,6 +2,9 @@ using BcxpChallenge;
 
 namespace Tests.CountryAnalysis;
 
+/// <summary>
+/// Provides tests for the Country class.
+/// </summary>
 public class CountryTest
 {
     /// <summary>

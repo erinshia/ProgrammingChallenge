@@ -8,8 +8,8 @@ public interface IFileReader
     /// <summary>
     /// Reads data from file, validates the input, and returns the data as a list of string arrays.
     /// </summary>
-    /// <param name="filePath"> The path to the file </param>
-    /// <param name="separator"> The character at which to split each line </param>
-    /// <returns> String array containing the data </returns>
+    /// <param name="filePath"> The path to the file. </param>
+    /// <param name="separator"> The character at which to split each line. </param>
+    /// <returns> String array containing the data or null if the file contains no data. </returns>
     public IEnumerable<string[]>? ReadDataFromFile(string filePath, char separator);
 }

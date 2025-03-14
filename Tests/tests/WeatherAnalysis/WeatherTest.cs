@@ -2,6 +2,9 @@ using BcxpChallenge;
 
 namespace Tests.WeatherAnalysis;
 
+/// <summary>
+/// Provides tests for the Weather class.
+/// </summary>
 public class WeatherTest
 {
     /// <summary>

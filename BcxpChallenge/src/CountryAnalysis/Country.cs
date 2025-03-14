@@ -12,11 +12,11 @@ public class Country
     public string Name => _name;
     
     /// <summary>
-    /// Constructor for the country class taking a name string and int values for population and area.
+    /// Constructor for the country class.
     /// </summary>
-    /// <param name="name"> The name of the country </param>
-    /// <param name="population"> The population of the country </param>
-    /// <param name="area"> The area of the country </param>
+    /// <param name="name"> The name of the country. </param>
+    /// <param name="population"> The population of the country. </param>
+    /// <param name="area"> The area of the country. </param>
     public Country(string name, int population, int area)
     {
         _name = name;
@@ -27,7 +27,7 @@ public class Country
     /// <summary>
     /// Calculates the population density for the country data.
     /// </summary>
-    /// <returns> The population density </returns>
+    /// <returns> The population density. </returns>
     public float CalculatePopulationDensity()
     {
         if(_area == 0) return 0f;

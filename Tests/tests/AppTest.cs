@@ -4,7 +4,7 @@ using BcxpChallenge.FileParser;
 namespace Tests
 {
     /// <summary>
-    /// NUnit tests to test the functionality of the programm.
+    /// Provides tests for the App class.
     /// </summary>
     public class AppTest
     {

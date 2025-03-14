@@ -2,6 +2,9 @@ using BcxpChallenge.Utils;
 
 namespace Tests.Utils;
 
+/// <summary>
+/// Provides tests for the NumberParsingUtils class.
+/// </summary>
 public class NumberParsingUtilsTest
 {
     /// <summary>
