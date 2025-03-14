@@ -35,7 +35,7 @@ public class CountryAnalyser : DataAnalyser<Country>
     /// <returns> The name of the country with the highest population density </returns>
     public static string FindCountryWithHighestPopulationDensity(List<Country> countryData)
     {
-        countryData.Sort((x, y) => x.CalculatePopulationDensity().CompareTo(y.CalculatePopulationDensity()));
-        return countryData.Last().Name;
+        var minSpread = countryData.MaxBy(x => x.CalculatePopulationDensity());
+        return minSpread?.Name ?? "";
     }
 }

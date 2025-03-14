@@ -34,9 +34,9 @@ public class WeatherAnalyser : DataAnalyser<Weather>
     /// </summary>
     /// <param name="weatherData"> List of Weather data </param>
     /// <returns> The day of the month with the lowest temperature spread </returns>
-    public static int FindDayWithLowestTempSpread(List<Weather>? weatherData)
+    public static int FindDayWithLowestTempSpread(List<Weather> weatherData)
     {
-        weatherData.Sort((x, y) => x.CalculateTemperatureSpread().CompareTo(y.CalculateTemperatureSpread()));
-        return weatherData.First().Day;
+        var minSpread = weatherData.MinBy(x => x.CalculateTemperatureSpread());
+        return minSpread?.Day ?? 0;
     }
 }
