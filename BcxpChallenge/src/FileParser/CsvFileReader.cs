@@ -1,3 +1,5 @@
+using BcxpChallenge.Utils;
+
 namespace BcxpChallenge.FileParser
 {
     /// <summary>
@@ -28,10 +30,8 @@ namespace BcxpChallenge.FileParser
                     Console.WriteLine($"File only contains headers: {filePath}");
                     return null;
                 }
-
-                lines = lines.Skip(1).ToArray();
-                var data = lines.Select(line => line.Split(separator));
-                return data;
+                
+                return DataCleaningUtils.CleanDataOfHeadersAndSeparators(lines, separator);
             }
             catch (Exception ex)
             {
