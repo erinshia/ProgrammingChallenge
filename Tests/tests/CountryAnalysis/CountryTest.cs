@@ -1,4 +1,6 @@
-namespace BcxpChallenge.CountryAnalysis;
+using BcxpChallenge;
+
+namespace Tests.CountryAnalysis;
 
 public class CountryTest
 {

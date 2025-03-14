@@ -1,4 +1,6 @@
-namespace BcxpChallenge.WeatherAnalysis;
+using BcxpChallenge;
+
+namespace Tests.WeatherAnalysis;
 
 public class WeatherTest
 {

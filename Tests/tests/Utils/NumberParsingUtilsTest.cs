@@ -1,4 +1,6 @@
-namespace BcxpChallenge.Utils;
+using BcxpChallenge.Utils;
+
+namespace Tests.Utils;
 
 public class NumberParsingUtilsTest
 {

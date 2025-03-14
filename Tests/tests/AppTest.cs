@@ -1,21 +1,32 @@
-﻿using BcxpChallenge.FileParser;
+﻿using BcxpChallenge;
+using BcxpChallenge.FileParser;
 
-namespace BcxpChallenge
+namespace Tests
 {
     /// <summary>
     /// NUnit tests to test the functionality of the programm.
     /// </summary>
     public class AppTest
     {
+        private CsvFileReader _csvFileReader;
+
+        /// <summary>
+        /// Setting up the csv file reader for testing.
+        /// </summary>
+        [SetUp]
+        public void Setup()
+        {
+            _csvFileReader = new CsvFileReader();
+        }
+        
         /// <summary>
         /// Test if the correct day with the lowest temperature spread is found.
         /// </summary>
         [Test]
         public void TestWeatherWithCorrectInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
             string weatherFilePath = "../../../resources/BcxpChallenge/weather.csv";
-            Assert.That(weatherFilePath.FindLowestTempSpread(csvFileReader), Is.EqualTo(14));
+            Assert.That(weatherFilePath.FindLowestTempSpread(_csvFileReader), Is.EqualTo(14));
         }
         
         /// <summary>
@@ -24,9 +35,8 @@ namespace BcxpChallenge
         [Test]
         public void TestCountriesWithCorrectInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
             string countryFilePath = "../../../resources/BcxpChallenge/countries.csv";
-            Assert.That(countryFilePath.FindHighestPopulationDensity(csvFileReader), Is.EqualTo("Malta"));
+            Assert.That(countryFilePath.FindHighestPopulationDensity(_csvFileReader), Is.EqualTo("Malta"));
         }
         
         /// <summary>
@@ -35,9 +45,8 @@ namespace BcxpChallenge
         [Test]
         public void TestWeatherWithEmptyInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
-            string weatherFilePath = "../../../resources/BcxpChallenge/Empty.csv";
-            Assert.That(weatherFilePath.FindLowestTempSpread(csvFileReader), Is.EqualTo(0));
+            string weatherFilePath = "../../../resources/BcxpChallenge/empty.csv";
+            Assert.That(weatherFilePath.FindLowestTempSpread(_csvFileReader), Is.EqualTo(0));
         }
         
         /// <summary>
@@ -46,9 +55,8 @@ namespace BcxpChallenge
         [Test]
         public void TestCountriesWithEmptyInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
-            string countryFilePath = "../../../resources/BcxpChallenge/Empty.csv";
-            Assert.That(countryFilePath.FindHighestPopulationDensity(csvFileReader), Is.EqualTo(null));
+            string countryFilePath = "../../../resources/BcxpChallenge/empty.csv";
+            Assert.That(countryFilePath.FindHighestPopulationDensity(_csvFileReader), Is.EqualTo(null));
         }
         
         /// <summary>
@@ -57,9 +65,8 @@ namespace BcxpChallenge
         [Test]
         public void TestWeatherWithInvalidEntryInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
             string weatherFilePath = "../../../resources/BcxpChallenge/weatherInvalidEntry.csv";
-            Assert.That(weatherFilePath.FindLowestTempSpread(csvFileReader), Is.EqualTo(14));
+            Assert.That(weatherFilePath.FindLowestTempSpread(_csvFileReader), Is.EqualTo(14));
         }
         
         /// <summary>
@@ -68,9 +75,8 @@ namespace BcxpChallenge
         [Test]
         public void TestCountriesWithInvalidEntryInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
             string countryFilePath = "../../../resources/BcxpChallenge/countriesInvalidEntry.csv";
-            Assert.That(countryFilePath.FindHighestPopulationDensity(csvFileReader), Is.EqualTo("Malta"));
+            Assert.That(countryFilePath.FindHighestPopulationDensity(_csvFileReader), Is.EqualTo("Malta"));
         } 
         
         /// <summary>
@@ -79,9 +85,8 @@ namespace BcxpChallenge
         [Test]
         public void TestWeatherWithInvalidInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
             string weatherFilePath = "../../../resources/BcxpChallenge/weatherInvalid.csv";
-            Assert.That(weatherFilePath.FindLowestTempSpread(csvFileReader), Is.EqualTo(0));
+            Assert.That(weatherFilePath.FindLowestTempSpread(_csvFileReader), Is.EqualTo(0));
         }
         
         /// <summary>
@@ -90,9 +95,8 @@ namespace BcxpChallenge
         [Test]
         public void TestCountriesWithInvalidInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
             string countryFilePath = "../../../resources/BcxpChallenge/countriesInvalid.csv";
-            Assert.That(countryFilePath.FindHighestPopulationDensity(csvFileReader), Is.EqualTo(null));
+            Assert.That(countryFilePath.FindHighestPopulationDensity(_csvFileReader), Is.EqualTo(null));
         }
         
         /// <summary>
@@ -101,9 +105,8 @@ namespace BcxpChallenge
         [Test]
         public void TestWeatherWithInvalidTypesInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
             string weatherFilePath = "../../../resources/BcxpChallenge/weatherInvalidType.csv";
-            Assert.That(weatherFilePath.FindLowestTempSpread(csvFileReader), Is.EqualTo(14));
+            Assert.That(weatherFilePath.FindLowestTempSpread(_csvFileReader), Is.EqualTo(14));
         }
         
         /// <summary>
@@ -112,9 +115,8 @@ namespace BcxpChallenge
         [Test]
         public void TestCountriesWithInvalidTypesInput()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
             string countryFilePath = "../../../resources/BcxpChallenge/countriesInvalidType.csv";
-            Assert.That(countryFilePath.FindHighestPopulationDensity(csvFileReader), Is.EqualTo("Malta"));
+            Assert.That(countryFilePath.FindHighestPopulationDensity(_csvFileReader), Is.EqualTo("Malta"));
         }
         
         /// <summary>
@@ -123,8 +125,7 @@ namespace BcxpChallenge
         [Test]
         public void TestWeatherWithWrongPath()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
-            Assert.That("wrongPath".FindHighestPopulationDensity(csvFileReader), Is.EqualTo(null));
+            Assert.That("wrongPath".FindHighestPopulationDensity(_csvFileReader), Is.EqualTo(null));
         }
         
         /// <summary>
@@ -133,8 +134,7 @@ namespace BcxpChallenge
         [Test]
         public void TestCountriesWithWrongPath()
         {
-            CsvFileReader csvFileReader = new CsvFileReader();
-            Assert.That("wrongPath".FindHighestPopulationDensity(csvFileReader), Is.EqualTo(null));
+            Assert.That("wrongPath".FindHighestPopulationDensity(_csvFileReader), Is.EqualTo(null));
         }
     }
 }
