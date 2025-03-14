@@ -27,7 +27,7 @@ public static class App
         
         CsvFileReader fileReader = new CsvFileReader();
         
-        Console.WriteLine($"Day with smallest temperature spread: {weatherFilePath.FindLowestTempSpreadIn(fileReader)}");
+        Console.WriteLine($"Day with smallest temperature spread: {weatherFilePath.FindLowestTempSpread(fileReader)}");
         Console.WriteLine($"Country with highest population density: {countryFilePath.FindHighestPopulationDensity(fileReader)}");
     }
 
@@ -37,7 +37,7 @@ public static class App
     /// <param name="weatherFilePath"> The path to the weather data file </param>
     /// <param name="fileReader"> The file parser </param>
     /// <returns> The #day with the lowest temperature spread </returns>
-    public static int FindLowestTempSpreadIn(this string weatherFilePath, IFileReader fileReader)
+    public static int FindLowestTempSpread(this string weatherFilePath, IFileReader fileReader)
     {
         var weatherInput = fileReader.ReadDataFromFile(weatherFilePath, ',');
         WeatherAnalyser weatherAnalyser = new WeatherAnalyser();
