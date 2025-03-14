@@ -18,7 +18,7 @@ public class CountryTest
     [Test]
     public void PopulationDensity_Returns0_WhenGiven0Population()
     {
-        Country testCountry = new Country("TestCountry", 10, 100);
+        Country testCountry = new Country("TestCountry", 0, 100);
         Assert.That(testCountry.CalculatePopulationDensity(), Is.EqualTo(0));
     }
     
@@ -28,7 +28,7 @@ public class CountryTest
     [Test]
     public void PopulationDensity_Returns0_WhenGiven0Area()
     {
-        Country testCountry = new Country("TestCountry", 10, 100);
+        Country testCountry = new Country("TestCountry", 10, 0);
         Assert.That(testCountry.CalculatePopulationDensity(), Is.EqualTo(0));
     }
 }
